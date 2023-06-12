@@ -1,0 +1,12 @@
+version: '3'
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    volumes:
+      - ..:/root/workspace
+      - ./.bashrc:/root/.bashrc
+    # Keep alive entrypoint
+    entrypoint: tail -f /dev/null
